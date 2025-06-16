@@ -1,0 +1,541 @@
+[
+  {
+    "text": "Heh.",
+    "startMs": 180,
+    "endMs": 940,
+    "timestampMs": 280,
+    "confidence": 0.54751
+  },
+  {
+    "text": " Heh.",
+    "startMs": 940,
+    "endMs": 1590,
+    "timestampMs": 1040,
+    "confidence": 0.565073
+  },
+  {
+    "text": " Heh.",
+    "startMs": 1590,
+    "endMs": 2280,
+    "timestampMs": 1760,
+    "confidence": 0.83792
+  },
+  {
+    "text": " Hey,",
+    "startMs": 2280,
+    "endMs": 2620,
+    "timestampMs": 2500,
+    "confidence": 0.969284
+  },
+  {
+    "text": " Stewie,",
+    "startMs": 2620,
+    "endMs": 2910,
+    "timestampMs": 2720,
+    "confidence": 0.941591
+  },
+  {
+    "text": " guess",
+    "startMs": 2910,
+    "endMs": 3100,
+    "timestampMs": 3040,
+    "confidence": 0.993422
+  },
+  {
+    "text": " what?",
+    "startMs": 3100,
+    "endMs": 3500,
+    "timestampMs": 3300,
+    "confidence": 0.999195
+  },
+  {
+    "text": " I",
+    "startMs": 3500,
+    "endMs": 3510,
+    "timestampMs": 3620,
+    "confidence": 0.550288
+  },
+  {
+    "text": " tried",
+    "startMs": 3510,
+    "endMs": 3870,
+    "timestampMs": 3820,
+    "confidence": 0.997272
+  },
+  {
+    "text": " to",
+    "startMs": 3870,
+    "endMs": 4020,
+    "timestampMs": 3980,
+    "confidence": 0.997992
+  },
+  {
+    "text": " cook",
+    "startMs": 4020,
+    "endMs": 4350,
+    "timestampMs": 4140,
+    "confidence": 0.992456
+  },
+  {
+    "text": " a",
+    "startMs": 4350,
+    "endMs": 4350,
+    "timestampMs": 4340,
+    "confidence": 0.994886
+  },
+  {
+    "text": " Hot",
+    "startMs": 4350,
+    "endMs": 4620,
+    "timestampMs": 4620,
+    "confidence": 0.736652
+  },
+  {
+    "text": " Pocket",
+    "startMs": 4620,
+    "endMs": 5000,
+    "timestampMs": 4880,
+    "confidence": 0.96104
+  },
+  {
+    "text": " in",
+    "startMs": 5000,
+    "endMs": 5200,
+    "timestampMs": 5080,
+    "confidence": 0.736084
+  },
+  {
+    "text": " a",
+    "startMs": 5200,
+    "endMs": 5230,
+    "timestampMs": 5220,
+    "confidence": 0.718632
+  },
+  {
+    "text": " toaster.",
+    "startMs": 5230,
+    "endMs": 5760,
+    "timestampMs": 5360,
+    "confidence": 0.930281
+  },
+  {
+    "text": " Ah,",
+    "startMs": 5760,
+    "endMs": 6220,
+    "timestampMs": 6080,
+    "confidence": 0.96493
+  },
+  {
+    "text": " yes.",
+    "startMs": 6220,
+    "endMs": 7000,
+    "timestampMs": 6440,
+    "confidence": 0.99666
+  },
+  {
+    "text": " Culinary",
+    "startMs": 7000,
+    "endMs": 7510,
+    "timestampMs": 7180,
+    "confidence": 0.720445
+  },
+  {
+    "text": " brilliance",
+    "startMs": 7510,
+    "endMs": 8250,
+    "timestampMs": 7940,
+    "confidence": 0.992748
+  },
+  {
+    "text": " at",
+    "startMs": 8250,
+    "endMs": 8390,
+    "timestampMs": 8140,
+    "confidence": 0.98286
+  },
+  {
+    "text": " its",
+    "startMs": 8390,
+    "endMs": 8610,
+    "timestampMs": 8320,
+    "confidence": 0.936962
+  },
+  {
+    "text": " finest.",
+    "startMs": 8610,
+    "endMs": 9300,
+    "timestampMs": 8680,
+    "confidence": 0.999763
+  },
+  {
+    "text": " Did",
+    "startMs": 9300,
+    "endMs": 9500,
+    "timestampMs": 9500,
+    "confidence": 0.997048
+  },
+  {
+    "text": " it",
+    "startMs": 9500,
+    "endMs": 9630,
+    "timestampMs": 9660,
+    "confidence": 0.998719
+  },
+  {
+    "text": " burst",
+    "startMs": 9630,
+    "endMs": 9960,
+    "timestampMs": 9860,
+    "confidence": 0.998167
+  },
+  {
+    "text": " into",
+    "startMs": 9960,
+    "endMs": 10240,
+    "timestampMs": 10160,
+    "confidence": 0.997512
+  },
+  {
+    "text": " flames",
+    "startMs": 10240,
+    "endMs": 10630,
+    "timestampMs": 10560,
+    "confidence": 0.99931
+  },
+  {
+    "text": " or",
+    "startMs": 10630,
+    "endMs": 10750,
+    "timestampMs": 10800,
+    "confidence": 0.80105
+  },
+  {
+    "text": " merely",
+    "startMs": 10750,
+    "endMs": 11150,
+    "timestampMs": 11100,
+    "confidence": 0.991964
+  },
+  {
+    "text": " ruin",
+    "startMs": 11150,
+    "endMs": 11410,
+    "timestampMs": 11420,
+    "confidence": 0.996569
+  },
+  {
+    "text": " breakfast?",
+    "startMs": 11410,
+    "endMs": 12240,
+    "timestampMs": 11900,
+    "confidence": 0.999035
+  },
+  {
+    "text": " Oh,",
+    "startMs": 12240,
+    "endMs": 12480,
+    "timestampMs": 12480,
+    "confidence": 0.993851
+  },
+  {
+    "text": " it",
+    "startMs": 12480,
+    "endMs": 12600,
+    "timestampMs": 12640,
+    "confidence": 0.99268
+  },
+  {
+    "text": " exploded,",
+    "startMs": 12600,
+    "endMs": 13220,
+    "timestampMs": 13260,
+    "confidence": 0.996333
+  },
+  {
+    "text": " buddy.",
+    "startMs": 13220,
+    "endMs": 13830,
+    "timestampMs": 13580,
+    "confidence": 0.975777
+  },
+  {
+    "text": " Like",
+    "startMs": 13830,
+    "endMs": 14040,
+    "timestampMs": 13940,
+    "confidence": 0.924845
+  },
+  {
+    "text": " a",
+    "startMs": 14040,
+    "endMs": 14110,
+    "timestampMs": 14100,
+    "confidence": 0.999256
+  },
+  {
+    "text": " little",
+    "startMs": 14110,
+    "endMs": 14530,
+    "timestampMs": 14240,
+    "confidence": 0.992725
+  },
+  {
+    "text": " cheesy",
+    "startMs": 14530,
+    "endMs": 15100,
+    "timestampMs": 14720,
+    "confidence": 0.972852
+  },
+  {
+    "text": " volcano.",
+    "startMs": 15100,
+    "endMs": 15680,
+    "timestampMs": 15340,
+    "confidence": 0.996668
+  },
+  {
+    "text": " Meg's",
+    "startMs": 15680,
+    "endMs": 15970,
+    "timestampMs": 15940,
+    "confidence": 0.982697
+  },
+  {
+    "text": " still",
+    "startMs": 15970,
+    "endMs": 16440,
+    "timestampMs": 16240,
+    "confidence": 0.99939
+  },
+  {
+    "text": " scraping",
+    "startMs": 16440,
+    "endMs": 16740,
+    "timestampMs": 16660,
+    "confidence": 0.583543
+  },
+  {
+    "text": " it",
+    "startMs": 16740,
+    "endMs": 16860,
+    "timestampMs": 16860,
+    "confidence": 0.997954
+  },
+  {
+    "text": " off",
+    "startMs": 16860,
+    "endMs": 17040,
+    "timestampMs": 17000,
+    "confidence": 0.997162
+  },
+  {
+    "text": " the",
+    "startMs": 17040,
+    "endMs": 17250,
+    "timestampMs": 17240,
+    "confidence": 0.997801
+  },
+  {
+    "text": " ceiling.",
+    "startMs": 17250,
+    "endMs": 17840,
+    "timestampMs": 17520,
+    "confidence": 0.969152
+  },
+  {
+    "text": " Heh.",
+    "startMs": 17840,
+    "endMs": 18360,
+    "timestampMs": 18080,
+    "confidence": 0.44128
+  },
+  {
+    "text": " Splendid.",
+    "startMs": 18360,
+    "endMs": 19410,
+    "timestampMs": 18840,
+    "confidence": 0.987579
+  },
+  {
+    "text": " Shall",
+    "startMs": 19410,
+    "endMs": 19670,
+    "timestampMs": 19560,
+    "confidence": 0.624854
+  },
+  {
+    "text": " we",
+    "startMs": 19670,
+    "endMs": 19780,
+    "timestampMs": 19680,
+    "confidence": 0.998948
+  },
+  {
+    "text": " try",
+    "startMs": 19780,
+    "endMs": 19980,
+    "timestampMs": 19880,
+    "confidence": 0.999112
+  },
+  {
+    "text": " nuking",
+    "startMs": 19980,
+    "endMs": 20400,
+    "timestampMs": 20100,
+    "confidence": 0.99736
+  },
+  {
+    "text": " Pop-Tarts",
+    "startMs": 20400,
+    "endMs": 20990,
+    "timestampMs": 20680,
+    "confidence": 0.813048
+  },
+  {
+    "text": " in",
+    "startMs": 20990,
+    "endMs": 21080,
+    "timestampMs": 21140,
+    "confidence": 0.990172
+  },
+  {
+    "text": " a",
+    "startMs": 21080,
+    "endMs": 21140,
+    "timestampMs": 21360,
+    "confidence": 0.995372
+  },
+  {
+    "text": " hairdryer",
+    "startMs": 21140,
+    "endMs": 21730,
+    "timestampMs": 21440,
+    "confidence": 0.654012
+  },
+  {
+    "text": " next?",
+    "startMs": 21730,
+    "endMs": 22280,
+    "timestampMs": 22180,
+    "confidence": 0.957971
+  },
+  {
+    "text": " Ooh,",
+    "startMs": 22280,
+    "endMs": 22500,
+    "timestampMs": 22640,
+    "confidence": 0.641643
+  },
+  {
+    "text": " do",
+    "startMs": 22500,
+    "endMs": 22590,
+    "timestampMs": 22740,
+    "confidence": 0.81212
+  },
+  {
+    "text": " you",
+    "startMs": 22590,
+    "endMs": 22730,
+    "timestampMs": 22840,
+    "confidence": 0.938636
+  },
+  {
+    "text": " think",
+    "startMs": 22730,
+    "endMs": 22990,
+    "timestampMs": 23000,
+    "confidence": 0.998563
+  },
+  {
+    "text": " it'll",
+    "startMs": 22990,
+    "endMs": 23190,
+    "timestampMs": 23080,
+    "confidence": 0.986147
+  },
+  {
+    "text": " make",
+    "startMs": 23190,
+    "endMs": 23370,
+    "timestampMs": 23300,
+    "confidence": 0.998738
+  },
+  {
+    "text": " 'em",
+    "startMs": 23370,
+    "endMs": 23520,
+    "timestampMs": 23440,
+    "confidence": 0.6289
+  },
+  {
+    "text": " crispier?",
+    "startMs": 23520,
+    "endMs": 24080,
+    "timestampMs": 23700,
+    "confidence": 0.985199
+  },
+  {
+    "text": " I",
+    "startMs": 24080,
+    "endMs": 24180,
+    "timestampMs": 24340,
+    "confidence": 0.989734
+  },
+  {
+    "text": " think",
+    "startMs": 24180,
+    "endMs": 24520,
+    "timestampMs": 24580,
+    "confidence": 0.999645
+  },
+  {
+    "text": " it'll",
+    "startMs": 24520,
+    "endMs": 24890,
+    "timestampMs": 24680,
+    "confidence": 0.998479
+  },
+  {
+    "text": " make",
+    "startMs": 24890,
+    "endMs": 25190,
+    "timestampMs": 25000,
+    "confidence": 0.99934
+  },
+  {
+    "text": " you",
+    "startMs": 25190,
+    "endMs": 25410,
+    "timestampMs": 25220,
+    "confidence": 0.999093
+  },
+  {
+    "text": " homeless.",
+    "startMs": 25410,
+    "endMs": 26280,
+    "timestampMs": 25760,
+    "confidence": 0.929358
+  },
+  {
+    "text": " Oh,",
+    "startMs": 26280,
+    "endMs": 26840,
+    "timestampMs": 26640,
+    "confidence": 0.967744
+  },
+  {
+    "text": " my",
+    "startMs": 26840,
+    "endMs": 27120,
+    "timestampMs": 26980,
+    "confidence": 0.917627
+  },
+  {
+    "text": " stars.",
+    "startMs": 27120,
+    "endMs": 28280,
+    "timestampMs": 27640,
+    "confidence": 0.886106
+  }
+]
