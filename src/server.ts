@@ -16,7 +16,7 @@ async function start() {
 //   setRenderQueue(queue);
   const serveUrl = process.env.REMOTION_SERVE_URL ||
    (await bundle({
-    entryPoint: path.resolve("remotion/index.ts"),
+    entryPoint: path.resolve("services/render/index.ts"),
     onProgress: (p) => console.info(`Bundling Remotion project: ${p}%`),
   }));
 
