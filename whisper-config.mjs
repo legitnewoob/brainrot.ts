@@ -1,7 +1,13 @@
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename); // ← always resolves to /project-root
+
 
 // Where to install Whisper.cpp to
-export const WHISPER_PATH = path.join(process.cwd(), "whisper.cpp");
+export const WHISPER_PATH = path.join(__dirname , "whisper.cpp");
+// export const WHISPER_PATH = path.join(process.cwd(), "whisper.cpp");
 
 // The version of Whisper.cpp to install
 export const WHISPER_VERSION = "1.6.0";

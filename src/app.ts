@@ -5,7 +5,7 @@ import path from "path";
 import indexRoutes from "./routes/index.routes";
 import audioRoutes from "./routes/audio.routes";
 import renderRoutes from "./routes/render.routes";
-
+import scriptRoutes from "./routes/script.routes";
 import { errorHandler } from "./middlewares/error.middleware";
 
 export function createApp() {
@@ -17,11 +17,12 @@ export function createApp() {
   // Static files (served at /audios and /renders)
   app.use("/audios", express.static(path.resolve("public/audios")));
   app.use("/renders", express.static(path.resolve("public/renders")));
-
+  app.use("/scripts", express.static(path.resolve("public/scripts")));
   // Routes
   app.use("/", indexRoutes);
   app.use("/audios", audioRoutes);
   app.use("/renders", renderRoutes);
+  app.use("/scripts" , scriptRoutes);
 
 //   Global error handler
   app.use(errorHandler);

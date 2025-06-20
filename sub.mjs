@@ -118,7 +118,7 @@ const processDirectory = async (directory) => {
     }
   }
 };
-
+console.log(WHISPER_PATH)
 await installWhisperCpp({ to: WHISPER_PATH, version: WHISPER_VERSION });
 await downloadWhisperModel({ folder: WHISPER_PATH, model: WHISPER_MODEL });
 

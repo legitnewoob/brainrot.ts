@@ -1,5 +1,5 @@
 import { Request } from "express";
-import { createAudioFileFromText, AUDIO_DIR } from "../../elevenlabs/tts.mjs";
+import { createAudioFileFromText, AUDIO_DIR } from "../../services/audio/tts.mjs";
 
 /**
  * Generate an MP3 from text using ElevenLabs and return the public URL.

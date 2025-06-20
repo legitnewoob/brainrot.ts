@@ -9,7 +9,7 @@ import { ensureBrowser } from "@remotion/renderer";
 import {
   createAudioFileFromText,   // returns { id, filePath }
   AUDIO_DIR                  // directory where MP3s are stored
-} from "../elevenlabs/tts.mjs";     // adjust path if different
+} from "../services/audio/tts.mjs";     // adjust path if different
 // --------------------------------------------------------
 
 const { PORT = 3000, REMOTION_SERVE_URL } = process.env;
