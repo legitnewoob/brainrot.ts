@@ -1,5 +1,5 @@
 import { ElevenLabsClient } from '@elevenlabs/elevenlabs-js';
-import { error } from 'console';
+// import { error } from 'console';
 import * as dotenv from 'dotenv';
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
@@ -25,8 +25,8 @@ export const createAudioFileFromText = async (text: string , speakerName : strin
   const parsedId = `${voiceName}_ID`;
   const voiceId = process.env[parsedId]; // Else use Adam Stone
   console.log(`Using voice ID: ${voiceId} for speaker: ${voiceName}`);
-
- if (voiceId == "NFG5qt843uXKj4pFvR7C") {
+  
+ if (!voiceId) {
     const msg = `❌ Missing voice ID in .env for speaker "${speakerName}" (expected key: ${parsedId})`;
     console.error(msg);
     throw new Error(msg);

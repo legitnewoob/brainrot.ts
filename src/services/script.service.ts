@@ -1,7 +1,7 @@
 import { Request } from "express";
 import fs from "fs/promises";
 import path from "path";
-import { createScript as createChatGptScript } from "../../services/script/createScript";
+import { createScript as createChatGptScript } from "../../services/script-generator/createScript";
 
 /**
  * Creates the script, saves it as a file, and returns public URL
