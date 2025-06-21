@@ -24,7 +24,7 @@ async function start() {
   const queue = makeRenderQueue({
     port: Number(PORT),
     serveUrl,
-    rendersDir: path.resolve("public/renders"),
+    rendersDir: path.resolve("public/renders")
   });
 
   // Inject into service layer

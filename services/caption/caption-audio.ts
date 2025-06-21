@@ -1,9 +1,4 @@
-// caption-audio.ts  ───────────────────────────────────────────────────────────
-// Usage examples:
-//   npx tsx caption-audio.ts ./assets/voiceover.mp3
-//   npx tsx caption-audio.ts https://example.com/podcast.wav
-// ---------------------------------------------------------------------------
-
+// src/services/caption/caption-audio.ts
 import { execSync } from "node:child_process";
 import {
   existsSync,
@@ -13,8 +8,7 @@ import {
   mkdtempSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
-import path from "node:path";
-import { dirname, basename, extname } from "node:path";
+import path, { basename, extname } from "node:path";
 import { pipeline } from "node:stream/promises";
 import { createWriteStream } from "node:fs";
 import https from "node:https";
@@ -26,7 +20,6 @@ import {
   WHISPER_PATH,
   WHISPER_VERSION,
 } from "../../whisper-config.mjs";
-
 import {
   downloadWhisperModel,
   installWhisperCpp,
@@ -34,13 +27,7 @@ import {
   toCaptions,
 } from "@remotion/install-whisper-cpp";
 
-// ────────────────────────────── helpers ──────────────────────────────────────
-
-/**
- * Download a remote file (HTTP/S) to the given output path.
- */
-
-
+// ─── internal helpers ────────────────────────────────────────────────────────
 async function download(url: string, outputPath: string) {
   const client = url.startsWith("https") ? https : http;
   await pipeline(
@@ -49,10 +36,6 @@ async function download(url: string, outputPath: string) {
   );
 }
 
-/**
- * Convert any audio file to a temporary 16 kHz mono WAV ― the format Whisper
- * prefers. Returns the temp WAV path.
- */
 function convertToWav(input: string, workDir: string): string {
   const out = path.join(workDir, `${basename(input, extname(input))}.wav`);
   execSync(
@@ -62,92 +45,95 @@ function convertToWav(input: string, workDir: string): string {
   return out;
 }
 
-/**
- * Ensure we have Whisper C++ and the requested model locally.
- */
 async function prepareWhisper() {
-    console.log(WHISPER_PATH);
   await installWhisperCpp({ to: WHISPER_PATH, version: WHISPER_VERSION });
   await downloadWhisperModel({ folder: WHISPER_PATH, model: WHISPER_MODEL });
 }
 
-// ────────────────────────────── main worker ──────────────────────────────────
+// ─── PUBLIC API ──────────────────────────────────────────────────────────────
+export interface CaptionOptions {
+  input: string;                  // local file path OR http(s) url   (required)
+  outDir?: string;                // defaults to "<repo>/public/captions"
+  model?: string;                 // override WHISPER_MODEL
+  language?: string;              // override WHISPER_LANG
+}
 
-async function captionOne(inputArg: string) {
+export async function captionAudio(opts: CaptionOptions) {
+  await prepareWhisper();
+
+  const {
+    input,
+    outDir = path.join(process.cwd(), "public", "captions"),
+    model = WHISPER_MODEL,
+    language = WHISPER_LANG,
+  } = opts;
+
   const workDir = mkdtempSync(path.join(tmpdir(), "caption-"));
-  let localAudioPath = inputArg;
+  let localAudioPath = input;
 
-  // 1) If the argument is a URL, download it first.
-  if (/^https?:\/\//i.test(inputArg)) {
+  // 1) Remote download if needed
+  if (/^https?:\/\//i.test(input)) {
     const downloadPath = path.join(
       workDir,
-      basename(new URL(inputArg).pathname) || "audio",
+      basename(new URL(input).pathname) || "audio",
     );
-    console.log("↯ Downloading remote audio…");
-    await download(inputArg, downloadPath);
+    await download(input, downloadPath);
     localAudioPath = downloadPath;
   }
-
   if (!existsSync(localAudioPath)) {
     throw new Error(`Input file not found: ${localAudioPath}`);
   }
 
-  // 2) Convert to 16 kHz WAV if necessary
+  // 2) Convert to wav if required
   const wavPath =
     extname(localAudioPath).toLowerCase() === ".wav"
       ? localAudioPath
       : convertToWav(localAudioPath, workDir);
 
-  // 3) Transcribe with Whisper C++
-  console.log("🗣️  Transcribing with Whisper...");
+  // 3) Transcription
   const whisperOutput = await transcribe({
     inputPath: wavPath,
-    model: WHISPER_MODEL,
+    model,
     tokenLevelTimestamps: true,
     whisperPath: WHISPER_PATH,
     whisperCppVersion: WHISPER_VERSION,
     printOutput: false,
     translateToEnglish: false,
-    language: WHISPER_LANG,
+    language,
     splitOnWord: true,
   });
 
-  // 4) Convert to caption JSON
+  // 4) Convert + persist
   const { captions } = toCaptions({ whisperCppOutput: whisperOutput });
+  if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
 
-  // 5) Persist under /public/captions
-  const captionsDir = path.join(process.cwd(), "../public", "captions");
-  if (!existsSync(captionsDir)) {
-    mkdirSync(captionsDir, { recursive: true });
-  }
-  const outJson = path.join(
-    captionsDir,
+  const captionPath = path.join(
+    outDir,
     `${basename(localAudioPath, extname(localAudioPath))}.json`,
   );
-  writeFileSync(outJson, JSON.stringify(captions, null, 2));
-  console.log(`✅ Captions written → ${path.relative(process.cwd(), outJson)}`);
+  writeFileSync(captionPath, JSON.stringify(captions, null, 2));
 
-  // 6) Clean up temp
+  // 5) Cleanup tmp
   rmSync(workDir, { recursive: true, force: true });
+  
+  return { captionPath, captionsJson: captions };
 }
 
-// ────────────────────────────── bootstrap ────────────────────────────────────
-
-(async () => {
-  try {
-    await prepareWhisper();
-
+// ─── OPTIONAL CLI wrapper (keeps old behaviour) ──────────────────────────────
+if (require.main === module) {
+  (async () => {
     const targets = process.argv.slice(2);
     if (targets.length === 0) {
-      console.error("⚠️  Pass at least one audio file or URL");
+      console.error("Usage: npx tsx caption-audio.ts <file-or-url> [...]");
       process.exit(1);
     }
-
-    for (const target of targets) {
-      await captionOne(target);
+    for (const t of targets) {
+      try {
+        const { captionPath } = await captionAudio({ input: t });
+        console.log("✅ Captions written:", path.relative(process.cwd(), captionPath));
+      } catch (err) {
+        console.error("❌", err);
+      }
     }
-  } catch (err) {
-    console.error(err);
-    process.exit(1);
-  }
-})();
+  })();
+}

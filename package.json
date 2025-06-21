@@ -15,6 +15,7 @@
     "@remotion/media-utils": "^4.0.314",
     "@remotion/renderer": "4.0.314",
     "@remotion/zod-types": "4.0.314",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "5.1.0",
     "openai": "^5.6.0",
@@ -47,6 +48,6 @@
     "start": "tsx src/server.ts",
     "lint": "eslint . && tsc",
     "remotion:upgrade": "remotion upgrade",
-    "remotion:studio": "remotion studio"
+    "remotion:studio": "remotion studio services/render/index.ts"
   }
 }

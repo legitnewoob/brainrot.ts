@@ -1,14 +1,10 @@
 import { Router } from "express";
-import {
-  createRenderJob,
-  getRenderJob,
-  cancelRenderJob,
-} from "../controllers/render.controller";
+import {enqueueRender , fetchJob , killJob} from "../controllers/render.controller";
 
 const router = Router();
 
-router.post("/", createRenderJob);           // POST /renders
-router.get("/:jobId", getRenderJob);         // GET /renders/:jobId
-router.delete("/:jobId", cancelRenderJob);   // DELETE /renders/:jobId
+router.post("/", enqueueRender);           // POST /renders/
+router.get("/:jobId", fetchJob);         // GET /renders/:jobId
+router.delete("/:jobId", killJob);   // DELETE /renders/:jobId
 
 export default router;
