@@ -8,13 +8,5 @@ out
 
 build
 
-renders
-
 whisper.cpp
 
-public/audios
-
-public/captions
-
-
-public/scripts
