@@ -10,10 +10,15 @@ build
 
 whisper.cpp
 
-public/audios
 
-public/captions
+# Ignore contents of these folders but keep the folders
+public/audios/*
+public/videos/*
+public/scripts/*
+public/captions/*
 
-public/renders
-
-public/scripts
+# But do NOT ignore the folders themselves
+!public/audios/.gitkeep
+!public/videos/.gitkeep
+!public/scripts/.gitkeep
+!public/captions/.gitkeep
