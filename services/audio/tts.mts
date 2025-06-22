@@ -8,7 +8,8 @@ import { v4 as uuid } from 'uuid';
 dotenv.config();
 
 const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
-const elevenlabs = new ElevenLabsClient({ apiKey: ELEVENLABS_API_KEY });
+const ELEVENLABS_API_KEY_SPARE=process.env.ELEVENLABS_API_KEY_AGRAWAL_RAJ
+const elevenlabs = new ElevenLabsClient({ apiKey: ELEVENLABS_API_KEY_SPARE });
 
 export const AUDIO_DIR = join(process.cwd(), 'public/audios');
 if (!existsSync(AUDIO_DIR)) mkdirSync(AUDIO_DIR, { recursive: true });

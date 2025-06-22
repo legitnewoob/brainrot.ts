@@ -12,3 +12,10 @@ renders
 
 whisper.cpp
 
+public/audios
+
+public/captions
+
+public/renders
+
+public/scripts

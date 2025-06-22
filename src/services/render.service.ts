@@ -17,6 +17,7 @@ export function setRenderQueue(
 }
 
 export function createRenderJob(data: JobData): string {
+  console.log("HELLOOOO");
   assertQueue();
   return queue!.createJob(data);
 }

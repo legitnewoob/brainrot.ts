@@ -7,7 +7,9 @@ import { randomUUID } from "node:crypto";
 import path from "node:path";
 
 interface JobData {
-  titleText: string;
+  videoPath: string;
+  audioPath: string;
+  captionsPath: string;
 }
 
 type JobState =
@@ -64,7 +66,9 @@ export const makeRenderQueue = ({
 
     try {
       const inputProps = {
-        titleText: job.data.titleText,
+        videoPath : job.data.videoPath,
+        audioPath : job.data.audioPath,
+        captionsPath : job.data.captionsPath
       };
 
       const composition = await selectComposition({
@@ -72,7 +76,7 @@ export const makeRenderQueue = ({
         id: compositionId,
         inputProps,
       });
-
+      console.log("HELLOOO");
       await renderMedia({
         cancelSignal,
         serveUrl,

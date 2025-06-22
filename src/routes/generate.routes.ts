@@ -1,12 +1,11 @@
+// src/routes/caption.routes.ts
 import { Router } from "express";
-import {
-  createScript
-} from "../controllers/script.controller";
+import { finalProduct } from "../controllers/generate.controller";
 
 const router = Router();
 
-const service_name = "OpenAI creative"
 
+const service_name = "Brainrot.ts";
 router.get("/", (_req, res) => {
   res.status(200).json({
     message: `🧠 This endpoint uses ${service_name} api service`,
@@ -14,8 +13,7 @@ router.get("/", (_req, res) => {
   });
   console.log("✅ Health Check");
 });
-
-router.post("/create", createScript);           // POST /renders
-// router.get("/:id", getScript);         // GET /renders/:jobId
+// POST /api/captions
+router.post("/create", finalProduct);
 
 export default router;

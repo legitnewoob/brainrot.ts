@@ -20,13 +20,18 @@ function toPublicJob(job: JobState) {
 /*  POST /renders – enqueue a new render                               */
 /* ------------------------------------------------------------------ */
 export function enqueueRender(req: Request, res: Response) {
-  const { titleText } = req.body ?? {};
+    const { videoPath, audioPath, captionsPath } = req.body ?? {};
 
-  if (typeof titleText !== "string") {
-    return res.status(400).json({ message: "`titleText` must be a string" });
+    console.log(req);
+  if (
+    typeof videoPath !== "string" ||
+    typeof audioPath !== "string" ||
+    typeof captionsPath !== "string"
+  ) {
+    return res.status(400).json({ message: "All paths must be strings" });
   }
 
-  const jobId = createRenderJob({ titleText });
+  const jobId = createRenderJob({ videoPath, audioPath, captionsPath });
   return res.status(202).json({ jobId });
 }
 

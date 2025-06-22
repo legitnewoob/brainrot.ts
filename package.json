@@ -30,6 +30,7 @@
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.314",
     "@remotion/eslint-plugin": "4.0.314",
+    "@types/cors": "^2.8.19",
     "@types/dotenv": "^6.1.1",
     "@types/express": "5.0.1",
     "@types/react": "19.0.0",

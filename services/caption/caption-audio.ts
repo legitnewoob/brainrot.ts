@@ -28,12 +28,31 @@ import {
 } from "@remotion/install-whisper-cpp";
 
 // ─── internal helpers ────────────────────────────────────────────────────────
+// async function download(url: string, outputPath: string) {
+//   const client = url.startsWith("https") ? https : http;
+//   await pipeline(
+//     client.get(url, { headers: { "User-Agent": "caption-script/1.0" } }),
+//     createWriteStream(outputPath),
+//   );
+// }
+
 async function download(url: string, outputPath: string) {
   const client = url.startsWith("https") ? https : http;
-  await pipeline(
-    client.get(url, { headers: { "User-Agent": "caption-script/1.0" } }),
-    createWriteStream(outputPath),
-  );
+
+  // Wrap the download logic in a Promise to get the response stream
+  const readable = await new Promise<http.IncomingMessage>((resolve, reject) => {
+    client.get(url, { headers: { "User-Agent": "caption-script/1.0" } }, (res) => {
+      if (res.statusCode !== 200) {
+        reject(new Error(`Failed to download: ${res.statusCode} ${res.statusMessage}`));
+      } else {
+        resolve(res);
+      }
+    }).on("error", reject);
+  });
+  console.log("🔽 Downloading:", url);
+  console.log("💾 Saving to:", outputPath);
+  // Pipe the readable stream into the write stream
+  await pipeline(readable, createWriteStream(outputPath));
 }
 
 function convertToWav(input: string, workDir: string): string {
